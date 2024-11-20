@@ -1,0 +1,23 @@
+extends main.pug
+block content
+  .container.mt-5
+    .row
+      include menu.pug
+    .col-md-9
+      h2 Szczegóły przepisu
+      .row.mt-4
+        .col-md-8
+          img.recipe-img.mb-3(src='/img/1.png' alt='Zdjęcie przepisu')
+          h3 Nazwa przepisu
+          h5 Opis przepisu
+          p(style='white-space: pre-line') Tutaj będzie opis przepisu
+          h5 Opis przygotowania
+          p(style='white-space: pre-line') Tutaj będzie opis przygotowania
+          hr
+          p Autor: 
+            strong Jan Kowalski
+          p Kategoria: 
+            strong Śniadanie
+          p Data utworzenia: 
+            strong 26.11.2024
+

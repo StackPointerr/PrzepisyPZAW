@@ -1,0 +1,32 @@
+extends main.pug
+block content
+  .container.mt-5
+    include menu.pug
+    .row.d-flex.justify-content-center
+      .col-md-9
+        h2.mb-4 Dodaj nowy przepis
+        form
+          .mb-3
+            label.form-label(for='recipeName') Nazwa przepisu:
+            input.form-control(type='text' name='recipeName' placeholder='Wpisz nazwę przepisu...')
+            .mt-1.text-danger Błąd tytułu 
+          .mb-3
+            label.form-label(for='shortDescription') Krótki opis:
+            textarea.form-control(name='shortDescription' rows='3' placeholder='Dodaj krótki opis...')
+            .mt-1.text-danger Błąd krótkiego opisu
+          .mb-3
+            label.form-label(for='category') Kategoria:
+            select.form-select(name='category')
+              option(value='' selected='') Wybierz kategorie...
+              option(value='{{ category.id }}') Kategoria 
+            .mt-1.text-danger Błąd wyboru kategori
+          .mb-3
+            label.form-label(for='recipeImage') Zdjęcie potrawy: 
+            input.form-control(#imageinput='' type='file' name='recipeImage')
+            .mt-1.text-danger Błąd wyboru zdjęcia
+          .mb-3
+            label.form-label(for='preparationDescription') Opis przygotowania:
+            textarea.form-control(name='preparationDescription' rows='5' placeholder='Dodaj opis przygotowania dania...')
+            .mt-1.text-danger Błąd opisu przygotowania 
+          button.btn.btn-primary.btn-lg.btn-block(type='submit' click='addRecipe(imageInput)') Dodaj przepis
+

@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
     "express": "^4.21.1",
     "mongoose": "^8.8.1",
     "pug": "^3.0.3",

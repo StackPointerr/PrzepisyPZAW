@@ -9,6 +9,11 @@ app.use(
     express.static(__dirname + "/node_modules/bootstrap/dist/css/"),
 );
 
+app.use(
+    "/bootstrap-icons",
+    express.static(__dirname + "/node_modules/bootstrap-icons/font/"),
+);
+
 app.use("/img", express.static(__dirname + "/public/img"));
 app.use("/css", express.static(__dirname + "/public/css"));
 

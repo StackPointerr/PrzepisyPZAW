@@ -1,14 +1,11 @@
-div(style='margin-bottom: 45px; border-bottom: 3px white solid; padding-bottom: 20px')
-  .d-flex.justify-content-center
-    .col-lg-3
-      h4.text-center
-        a.text-decoration-none(href='/') Przepisy
-    .col-lg-3
-      h4.text-center
-        a.text-decoration-none(href='/my_book') Moja książka kucharska
-    .col-lg-3
-      h4.text-center
-        a.text-decoration-none(href='/new_recipe') Dodaj przepis
-    .col-lg-3
-      h4.text-center
-        a.link-danger.text-decoration-none(href='/' click='logout()') Wyloguj się
+nav.navbar.navbar-expand-lg(style='margin-bottom: 45px; border-bottom: 5px white solid; padding-bottom: 20px')
+  #navbarNav.navbar-collapse
+    ul.navbar-nav.w-100
+      li.fs-3.nav-item.text-center.col
+        a.text-decoration-none.link-warning(href='/') Przepisy
+      li.fs-3.nav-item.text-center.col
+        a.text-decoration-none.link-warning(href='/my_book') Moja książka
+      li.fs-3.nav-item.text-center.col
+        a.text-decoration-none.link-warning(href='/new_recipe') Dodaj przepis
+      li.fs-3.nav-item.text-center.col
+        a.text-decoration-none.link-danger(href='/') Wyloguj się

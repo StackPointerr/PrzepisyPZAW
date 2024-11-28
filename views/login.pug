@@ -5,14 +5,14 @@ block content
       .col-md-6
         h2.mb-3 Logowanie
         form
-          .mt-1.mb-1.text-danger Błąd logowania
           .mb-3
             label.form-label(for='username') Nazwa użytkownika:
-            input.form-control(type='text' name='username')
-            .mt-1.text-danger Nie poprawny login
+            input.form-control(type='text' id='username')
           .mb-3
             label.form-label(for='password') Hasło:
-            input.form-control(type='password' name='password')
-            .mt-1.text-danger Nie poprawne hasło
-          .mb-3.d-grid
+            input.form-control(type='password' id='password')
+          .mt-3.text-danger#error
+          .mt-3.d-grid
             button.btn.btn-warning(type='submit' click='login()') Zaloguj się
+
+  script(src='js/login.js')

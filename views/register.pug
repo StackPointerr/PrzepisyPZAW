@@ -5,14 +5,15 @@ block content
       .col-md-6
         h2.mb-3 Rejestracja
         form
-          .mt-1.mb-1.text-danger Błąd rejestracji
           .mb-3
             label.form-label(for='username') Nazwa użytkownika
-            input.form-control(type='text' name='username')
-            .mt-1.text-danger Błąd nazwy użytkownika
+            input.form-control(type='text' id='username')
+            .mt-1.text-danger#error_login
           .mb-3
             label.form-label(for='password') Hasło
-            input.form-control(type='password' name='password')
-            .mt-1.text-danger Błąd hasła
+            input.form-control(type='password' id='password')
+            .mt-1.text-danger#error_password
           .mb-3.d-grid
             button.btn.btn-warning(type='submit' click='register()') Zarejestruj sie
+
+  script(src='js/register.js')

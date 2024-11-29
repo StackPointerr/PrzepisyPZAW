@@ -5,7 +5,7 @@ const app = express();
 
 app.set("view engine", "pug");
 app.use(cookieParser());
-app.use(express.json());
+app.use(express.json({ limit: "50mb" }));
 
 const db = require("./models");
 db.mongoose
@@ -46,6 +46,9 @@ app.use("/logout", logout_router);
 app.use("/recipe", recipe_router);
 app.use("/my_book", my_book_router);
 app.use("/new_recipe", new_recipe_router);
+
+const api_router = require("./routes/api/category");
+app.use("/api/category", api_router);
 
 app.listen(3000, () => {
     console.log("Nasluchuje na porcie 3000");

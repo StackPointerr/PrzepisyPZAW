@@ -14,6 +14,23 @@ const auth = async (req, res, next) => {
     next();
 };
 
+const loggedJson = async (req, res, next) => {
+    let token = await Token.findOne({ token: req.cookies.token }).populate(
+        "user",
+    );
+
+    if (!token) {
+        res.send({
+            success: false,
+            errors: { authorization: "Brak uprawnień, zaloguj się!" },
+        });
+    } else {
+        req.user = token.user;
+    }
+
+    next();
+};
+
 const isLogged = async (req, res, next) => {
     let token = await Token.countDocuments({ token: req.cookies.token });
     if (token) {
@@ -26,4 +43,5 @@ const isLogged = async (req, res, next) => {
 module.exports = {
     auth,
     isLogged,
+    loggedJson,
 };

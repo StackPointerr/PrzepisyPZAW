@@ -8,25 +8,25 @@ block content
         form
           .mb-3
             label.form-label(for='recipeName') Nazwa przepisu:
-            input.form-control(type='text' name='recipeName' placeholder='Wpisz nazwę przepisu...')
-            .mt-1.text-danger Błąd tytułu 
+            input.form-control(type='text' id='recipeName' placeholder='Wpisz nazwę przepisu...')
+            .mt-1.text-danger#error-title
           .mb-3
             label.form-label(for='shortDescription') Krótki opis:
-            textarea.form-control(name='shortDescription' rows='3' placeholder='Dodaj krótki opis...')
-            .mt-1.text-danger Błąd krótkiego opisu
+            textarea.form-control(id='shortDescription' rows='3' placeholder='Dodaj krótki opis...')
+            .mt-1.text-danger#error-description
           .mb-3
             label.form-label(for='category') Kategoria:
-            select.form-select(name='category')
+            select.form-select(id='category')
               option(value='' selected='') Wybierz kategorie...
-              option(value='{{ category.id }}') Kategoria 
-            .mt-1.text-danger Błąd wyboru kategori
+            .mt-1.text-danger#error-category
           .mb-3
             label.form-label(for='recipeImage') Zdjęcie potrawy: 
-            input.form-control(#imageinput='' type='file' name='recipeImage')
-            .mt-1.text-danger Błąd wyboru zdjęcia
+            input.form-control(type='file' id='recipeImage')
+            .mt-1.text-danger#error-image
           .mb-3
             label.form-label(for='preparationDescription') Opis przygotowania:
-            textarea.form-control(name='preparationDescription' rows='5' placeholder='Dodaj opis przygotowania dania...')
-            .mt-1.text-danger Błąd opisu przygotowania 
-          button.btn.btn-warning.btn-lg.btn-block(type='submit' click='addRecipe(imageInput)') Dodaj przepis
+            textarea.form-control(id='preparationDescription' rows='5' placeholder='Dodaj opis przygotowania dania...')
+            .mt-1.text-danger#error-prep-description
+          button.btn.btn-warning.btn-lg.btn-block(type='submit') Dodaj przepis
 
+  script(src='/js/new_recipe.js')

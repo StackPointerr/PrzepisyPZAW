@@ -7,18 +7,13 @@ block content
       h2.mt-1.text-warning Szczegóły przepisu
       .row.mt-4
         .col-md-8
-          img.recipe-img.mb-3.w-100.rounded-5(src='/img/1.png' alt='Zdjęcie przepisu')
-          h3.mt-1.text-warning Nazwa przepisu
+          img.recipe-img.mb-3.w-100.rounded-5(src=`/img/${przepis.zdjecie}` alt='Zdjęcie przepisu')
+          h3.mt-1.text-warning= przepis.nazwa
           h5.mt-1.text-warning Opis przepisu
-          p(style='white-space: pre-line') Tutaj będzie opis przepisu
+          p(style='white-space: pre-line')= przepis.opis 
           h5.mt-1.text-warning Opis przygotowania
-          p(style='white-space: pre-line') Tutaj będzie opis przygotowania
+          p(style='white-space: pre-line')= przepis.opis_przygotowania 
           hr
-          p #[span.mt-1.text-warning Autor:] #[strong Jan Kowalski]
-          p
-            span.mt-1.text-warning Kategoria:
-            strong Śniadanie
-          p
-            span.mt-1.text-warning Data utworzenia:
-            strong 26.11.2024
-
+          p #[span.mt-1.text-warning Autor:] #[strong= przepis.autor.username]
+          p #[span.mt-1.text-warning Kategoria:] #[strong= przepis.kategoria.nazwa]
+          p #[span.mt-1.text-warning Data utworzenia:] #[strong= przepis.data]

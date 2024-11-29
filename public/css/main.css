@@ -3,3 +3,7 @@ body {
   background-image: url("/img/tlo.jpg");
   font-family: "Russo One";
 }
+
+.template {
+  display: none;
+}

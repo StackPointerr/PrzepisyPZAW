@@ -16,7 +16,7 @@ const Przepis = mongoose.model(
             type: Types.ObjectId,
             ref: "Kategoria",
         },
-        data_utworzenia: Types.Date,
+        data_utworzenia: Schema.Types.Date,
     },
     "przepisy",
 );

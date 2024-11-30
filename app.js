@@ -49,9 +49,11 @@ app.use("/new_recipe", new_recipe_router);
 
 const api_router = require("./routes/api/category");
 const recipeApiRouter = require("./routes/api/recipe");
+const bookApiRouter = require("./routes/api/book");
 
 app.use("/api/category", api_router);
 app.use("/api/recipe", recipeApiRouter);
+app.use("/api/book", bookApiRouter);
 
 app.listen(3000, () => {
     console.log("Nasluchuje na porcie 3000");

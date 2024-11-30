@@ -13,16 +13,16 @@ block content
               option(value='id') Przedmiot
             button.btn.btn-warning(type='submit' click='searchClick()') Szukaj
         .row.row-cols-1.row-cols-md-2.g-4#recipeList
-        .template
-          .col#recipeTemplate
-            .card
-              img.card-img-top(src="img/1.png" alt='Zdjęcie dania')
-              .card-body
-                h5.card-title Tytuł
-                p.card-text Opis
-                .d-grid.gap-2.d-md-flex.justify-content-between
-                  a.btn.btn-warning(href='/recipe/1') Szczegóły
-                  button.btn.btn-outline-success#addToBook(onclick='addToBook(this)') Dodaj do książki
-                  button.btn.btn-danger#removeRecipe(click='removeRecipe(this)') Usuń przepis
+  template#recipeTemplate
+    .col
+      .card
+        img.card-img-top(src="img/1.png" alt='Zdjęcie dania')
+        .card-body
+          h5.card-title Tytuł
+          p.card-text Opis
+          .d-flex.gap-2.justify-content-between
+            a.btn.btn-warning.flex-grow-1(href='/recipe/1') Szczegóły
+            button.btn.btn-outline-success.flex-grow-1#addToBook(onclick='addToBook(this)') Dodaj do książki
+            button.btn.btn-danger.flex-grow-1#removeRecipe(click='removeRecipe(this)') Usuń przepis
 
-    script(src='/js/index.js')
+  script(src='/js/index.js')

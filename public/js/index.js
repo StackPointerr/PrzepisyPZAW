@@ -16,6 +16,23 @@ function addToBook(element) {
         });
 }
 
+function removeRecipe(element) {
+    fetch("/api/recipe", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ recipeId: element.dataset.id }),
+    })
+        .then((response) => response.json())
+        .then((response) => {
+            console.log("Usuń przepis: ", response);
+            if (response.success) {
+                element.closest(".col").remove();
+            } else {
+                alert(response.error);
+            }
+        });
+}
+
 fetch("/api/recipe", {
     method: "GET",
     headers: { "Content-Type": "application/json" },

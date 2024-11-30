@@ -25,7 +25,7 @@ router.delete("/", loggedJson, async (req, res) => {
 router.post("/", loggedJson, async (req, res) => {
     Przepis.findOne({ _id: req.body.recipeId }).then((przepis) => {
         let istniejacaKsiazka = req.user.ksiazka_kucharska.find((ksiazka) =>
-            ksiazka._id.equals(recipeId),
+            ksiazka._id.equals(req.body.recipeId),
         );
 
         if (!przepis) {

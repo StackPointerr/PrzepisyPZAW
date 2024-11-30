@@ -5,13 +5,16 @@ block content
     .row.d-flex.justify-content-center
       .col-xl-9
         h2.mb-4 Moja książka kucharska
-        .row.row-cols-1.row-cols-md-2.g-4
-          .col
-            .card
-              img.card-img-top(src='/img/2.png' alt='Zdjęcie dania')
-              .card-body
-                h5.card-title Tytuł
-                p.card-text Opis
-                .d-grid.gap-2.d-md-flex.justify-content-between
-                  a.btn.btn-warning(href='/recipe/1') Szczegóły
-                  button.btn.btn-danger(click='removeFromBook(recipe.id)') Usuń z książki kucharskiej
+        .row.row-cols-1.row-cols-md-2.g-4#recipeList
+  template#recipeTemplate
+    .col
+      .card
+        img.card-img-top(src='/img/2.png' alt='Zdjęcie dania')
+        .card-body
+          h5.card-title Tytuł
+          p.card-text Opis
+          .d-flex.gap-2.justify-content-between
+            a.btn.btn-warning.flex-grow-1(href='/recipe/1') Szczegóły
+            button.btn.btn-danger.flex-grow-1#removeFromBook(onclick='removeFromBook(this)') Usuń z książki kucharskiej
+
+  script(src='/js/my_book.js')

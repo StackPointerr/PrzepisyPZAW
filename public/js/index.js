@@ -1,3 +1,21 @@
+function addToBook(element) {
+    fetch("/api/book", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ recipeId: element.dataset.id }),
+    })
+        .then((response) => response.json())
+        .then((response) => {
+            console.log("Dodaj do książki: ", response);
+
+            if (response.success) {
+                element.remove();
+            } else {
+                alert(response.error);
+            }
+        });
+}
+
 fetch("/api/recipe", {
     method: "GET",
     headers: { "Content-Type": "application/json" },
@@ -10,7 +28,7 @@ fetch("/api/recipe", {
             response.przepisy.forEach((przepis) => {
                 let recipeTemplate = document
                     .getElementById("recipeTemplate")
-                    .cloneNode(true);
+                    .content.cloneNode(true);
 
                 recipeTemplate.querySelector("img").src =
                     "/img/" + przepis.zdjecie;

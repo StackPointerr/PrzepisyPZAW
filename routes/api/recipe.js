@@ -17,7 +17,6 @@ router.get("/", loggedJson, async (req, res) => {
         data_utworzenia: przepis.data_utworzenia,
         autor: przepis.autor.username,
         czy_jest_autorem: przepis.autor._id.equals(req.user._id),
-        kurwa: przepis.autor._id,
     }));
 
     res.send({

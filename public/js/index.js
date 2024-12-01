@@ -18,6 +18,26 @@ fetch("/api/category", {
         }
     });
 
+function removeFromBook(element) {
+    fetch("/api/book", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ recipeId: element.dataset.id }),
+    })
+        .then((response) => response.json())
+        .then((response) => {
+            console.log("Usunięto z ksiązki kucharskiej: ", response);
+
+            if (response.success) {
+                element.parentNode.querySelector("#addToBook").style.display =
+                    "block";
+                element.style.display = "none";
+            } else {
+                alert(response.error);
+            }
+        });
+}
+
 function addToBook(element) {
     fetch("/api/book", {
         method: "POST",
@@ -29,7 +49,10 @@ function addToBook(element) {
             console.log("Dodaj do książki: ", response);
 
             if (response.success) {
-                element.remove();
+                element.parentNode.querySelector(
+                    "#removeFromBook",
+                ).style.display = "block";
+                element.style.display = "none";
             } else {
                 alert(response.error);
             }
@@ -88,13 +111,23 @@ function wyswietlPrzepis(przepis) {
     recipeTemplate.querySelector("h5").innerText = przepis.nazwa_przepisu;
     recipeTemplate.querySelector("p").innerText = przepis.opis;
     recipeTemplate.querySelector("a").href = "/recipe/" + przepis.id;
-    recipeTemplate.querySelector("#addToBook").dataset.id = przepis.id;
 
     let removeBtn = recipeTemplate.querySelector("#removeRecipe");
     if (przepis.czy_jest_autorem) {
         removeBtn.dataset.id = przepis.id;
     } else {
         removeBtn.style.display = "none";
+    }
+
+    let addBtn = recipeTemplate.querySelector("#addToBook");
+    let removeBookBtn = recipeTemplate.querySelector("#removeFromBook");
+    removeBookBtn.dataset.id = przepis.id;
+    addBtn.dataset.id = przepis.id;
+
+    if (przepis.czy_w_ksiazce) {
+        addBtn.style.display = "none";
+    } else {
+        removeBookBtn.style.display = "none";
     }
 
     let recipeList = document.getElementById("recipeList");

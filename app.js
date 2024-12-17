@@ -12,6 +12,16 @@ db.mongoose
     .connect("mongodb://localhost:27017/przepisy", {})
     .then(() => {
         console.log("Polaczono z baza danych");
+
+        const Kategoria = require("./models").kategoria;
+        Kategoria.estimatedDocumentCount().then((count) => {
+            if (count == 0) {
+                new Kategoria({ nazwa: "mięsne" }).save();
+                new Kategoria({ nazwa: "jajeczne" }).save();
+                new Kategoria({ nazwa: "wegańskie" }).save();
+                new Kategoria({ nazwa: "mleczne" }).save();
+            }
+        });
     })
     .catch((error) => {
         console.error("Blad polaczenia z baza danych: ", error);
